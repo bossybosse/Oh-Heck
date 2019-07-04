@@ -1,0 +1,21 @@
+package commands;
+
+import server.RWSOserver;
+
+public class AddSayMessageCommand extends Command<RWSOserver> {
+	
+	private static final long serialVersionUID = 517416493638004734L;
+	private String message; // message from client
+
+
+	public AddSayMessageCommand(String username, String message) {
+		super(username);
+		this.message = message;
+	}
+
+	@Override
+	public void execute(RWSOserver executeOn) {
+		executeOn.addLocalMessage(message, clientUserName);		
+	}
+
+}
